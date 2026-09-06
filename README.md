@@ -20,7 +20,7 @@ Personal portfolio on Next.js 16 + Tailwind v4, with an "ask me anything" chat t
    | Variable | Where to get it |
    | --- | --- |
    | `GROQ_API_KEY` | https://console.groq.com/keys |
-   | `GROQ_MODEL` | optional, defaults to `llama-3.3-70b-versatile` |
+   | `GROQ_MODEL` | optional, defaults to `openai/gpt-oss-120b`. Groq retires models a few times a year; check [deprecations](https://console.groq.com/docs/deprecations) if the chat starts failing. |
    | `SUPABASE_URL` | Supabase → Project Settings → API |
    | `SUPABASE_PUBLISHABLE_KEY` | same page, "publishable" key |
    | `SUPABASE_SERVICE_ROLE_KEY` | same page, "service_role" key. Local and CI only, never in the browser. |

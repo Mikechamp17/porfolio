@@ -4,7 +4,9 @@ import { retrieve } from "@/lib/rag";
 export const runtime = "nodejs";
 export const maxDuration = 60;
 
-const MODEL = process.env.GROQ_MODEL ?? "llama-3.3-70b-versatile";
+// Groq retires models regularly (llama-3.3-70b-versatile went in Aug 2026).
+// Check https://console.groq.com/docs/deprecations if the chat starts failing.
+const MODEL = process.env.GROQ_MODEL ?? "openai/gpt-oss-120b";
 const MAX_TURNS = 12;
 const MAX_MESSAGE_CHARS = 1000;
 const RATE_LIMIT = { requests: 20, windowMs: 10 * 60 * 1000 };
@@ -107,20 +109,26 @@ export async function POST(request: Request) {
       model: MODEL,
       stream: true,
       temperature: 0.3,
-      max_completion_tokens: 400,
+      // gpt-oss spends part of the budget on hidden reasoning; keep it short.
+      reasoning_effort: "low",
+      max_completion_tokens: 800,
       messages: [{ role: "system", content: systemPrompt(context) }, ...messages],
     });
   } catch (error) {
     if (error instanceof Groq.APIError) {
       console.error(`groq ${error.status}: ${error.message}`);
-      const busy = error.status === 429 || (error.status ?? 500) >= 500;
+      const status = error.status ?? 500;
+      let message = "The assistant hit an error.";
+      if (status === 429 || status >= 500) {
+        message = "The assistant is busy. Try again in a minute.";
+      } else if (status === 401 || status === 403) {
+        message = "The assistant's API key was rejected.";
+      } else if (status === 400 || status === 404) {
+        message = `The model "${MODEL}" is not available.`;
+      }
       return Response.json(
-        {
-          error: busy
-            ? "The assistant is busy. Try again in a minute."
-            : "The assistant hit an error.",
-        },
-        { status: busy ? 503 : 500 },
+        { error: message },
+        { status: status === 429 || status >= 500 ? 503 : 500 },
       );
     }
     throw error;
