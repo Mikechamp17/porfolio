@@ -1,7 +1,15 @@
-export function SectionHeading({ children }: { children: string }) {
+export function SectionHeading({
+  index,
+  children,
+}: {
+  index: string;
+  children: string;
+}) {
   return (
-    <h2 className="mb-6 text-sm text-muted">
-      <span className="text-string">#</span> {children}
-    </h2>
+    <div className="mb-6 flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted">
+      <span className="text-accent">{index}</span>
+      <span>{children}</span>
+      <span className="h-px flex-1 bg-line" aria-hidden />
+    </div>
   );
 }

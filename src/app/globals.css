@@ -6,11 +6,10 @@
   --ink: #191a1c;
   --ink-soft: #4b4d52;
   --muted: #8a8d94;
-  --line: #dedad0;
-  --line-soft: #e9e6dd;
+  --line: #e2dfd6;
+  --line-soft: #edeae2;
   --accent: #b45309;
-  --accent-soft: #f2e4d3;
-  --string: #3f6b3f;
+  --accent-soft: #f5ebdd;
 }
 
 @theme inline {
@@ -23,16 +22,16 @@
   --color-line-soft: var(--line-soft);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
-  --color-string: var(--string);
+  --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
 }
 
 body {
   background-color: var(--paper);
   color: var(--ink);
-  font-family: var(--font-mono), ui-monospace, monospace;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   background-image: radial-gradient(var(--line-soft) 1px, transparent 1px);
-  background-size: 22px 22px;
+  background-size: 24px 24px;
 }
 
 ::selection {

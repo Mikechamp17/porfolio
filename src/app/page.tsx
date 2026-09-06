@@ -9,40 +9,45 @@ export default function Home() {
     <>
       <SiteHeader />
 
-      <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-20 px-6 py-16">
-        <section id="hero" className="flex flex-col gap-3">
-          <p className="text-sm text-muted">
-            <span className="text-accent">guest@porfolio</span>
-            <span className="text-muted">:~$ </span>
-            whoami
+      <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-20 px-6 py-20">
+        <section id="hero" className="flex flex-col gap-4">
+          <p className="font-mono text-xs uppercase tracking-widest text-muted">
+            Software Engineer
           </p>
-          <h1 className="text-3xl font-medium text-ink sm:text-4xl">
+          <h1 className="font-mono text-4xl font-medium text-ink sm:text-5xl">
             <Typewriter text="Your Name" />
           </h1>
-          <p className="max-w-lg text-ink-soft">
-            Software engineer building web apps, APIs, and the odd automation
-            script. Currently open to freelance and collaboration.
+          <p className="max-w-xl text-lg leading-relaxed text-ink-soft">
+            I build web apps, APIs, and the occasional automation script.
+            Currently open to freelance work and collaboration.
           </p>
+          <div className="mt-2 flex gap-5 font-mono text-sm">
+            <a href="#projects" className="text-accent hover:text-ink">
+              View projects ↓
+            </a>
+            <a href="#contact" className="text-ink-soft hover:text-accent">
+              Get in touch
+            </a>
+          </div>
         </section>
 
         <section id="about" className="flex flex-col">
-          <SectionHeading>about.md</SectionHeading>
-          <div className="flex flex-col gap-5 rounded-md border border-line bg-paper-raised p-6">
-            <p className="text-sm leading-relaxed text-ink-soft">
+          <SectionHeading index="01">About</SectionHeading>
+          <div className="flex flex-col gap-6">
+            <p className="max-w-xl leading-relaxed text-ink-soft">
               Replace this paragraph with a couple of sentences about your
-              background: what you work on, what you care about, and what
-              kind of problems you like solving. Keep it short — this is a
-              terminal, not a novel.
+              background: what you work on, what you care about, and what kind
+              of problems you like solving. Keep it short.
             </p>
             <div>
-              <p className="mb-2 text-xs text-muted">
-                <span className="text-accent">$</span> cat skills.txt
+              <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted">
+                Skills
               </p>
-              <ul className="flex flex-wrap gap-2 text-xs">
+              <ul className="flex flex-wrap gap-2 font-mono text-xs">
                 {skills.map((skill) => (
                   <li
                     key={skill}
-                    className="rounded border border-line-soft bg-accent-soft px-2 py-1 text-ink-soft"
+                    className="rounded border border-line bg-paper-raised px-2.5 py-1 text-ink-soft"
                   >
                     {skill}
                   </li>
@@ -53,7 +58,7 @@ export default function Home() {
         </section>
 
         <section id="projects" className="flex flex-col">
-          <SectionHeading>ls -la projects/</SectionHeading>
+          <SectionHeading index="02">Projects</SectionHeading>
           <ul className="flex flex-col gap-4">
             {projects.map((project) => (
               <ProjectCard key={project.slug} project={project} />
@@ -62,30 +67,25 @@ export default function Home() {
         </section>
 
         <section id="contact" className="flex flex-col">
-          <SectionHeading>contact.sh</SectionHeading>
-          <div className="flex flex-col gap-3 rounded-md border border-line bg-paper-raised p-6 text-sm">
+          <SectionHeading index="03">Contact</SectionHeading>
+          <p className="mb-6 max-w-xl leading-relaxed text-ink-soft">
+            Have a project in mind or just want to say hi? My inbox is open.
+          </p>
+          <ul className="flex flex-col gap-3 font-mono text-sm">
             {socials.map((social) => (
-              <div key={social.label} className="flex flex-wrap gap-2">
-                <span className="text-muted">$ ./contact.sh</span>
-                <span className="text-accent">{social.flag}</span>
-                <a
-                  href={social.href}
-                  className="text-ink underline decoration-dotted hover:text-accent"
-                >
+              <li key={social.label} className="flex flex-wrap gap-x-4">
+                <span className="w-20 text-muted">{social.label}</span>
+                <a href={social.href} className="text-ink hover:text-accent">
                   {social.value}
                 </a>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </section>
       </main>
 
-      <footer className="border-t border-line px-6 py-6 text-center text-xs text-muted">
-        <span className="text-accent">guest@porfolio</span>:~${" "}
-        <span aria-hidden className="caret">
-          ▌
-        </span>{" "}
-        built with Next.js + Tailwind · {new Date().getFullYear()}
+      <footer className="border-t border-line px-6 py-6 text-center font-mono text-xs text-muted">
+        © {new Date().getFullYear()} Your Name
       </footer>
     </>
   );
