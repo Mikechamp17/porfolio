@@ -1,57 +1,73 @@
-# About Your Name
+# About Mike Schaerer
 
-Your Name is a software engineer who builds web apps, APIs, and the occasional automation script. Replace this file with real content: everything the chat assistant knows about you comes from here.
+Mike Schaerer is a self-taught full-stack developer and IT administrator based in Malta. He works on a regulated platform in the iGaming sector. His one-line summary: he builds the product and runs the infrastructure it sits on.
 
-## Background
+## How Mike got into development
 
-Write two or three short paragraphs about your background. Where you studied or how you got into engineering, the kinds of teams and products you've worked on, and what you're focused on now.
+Mike came into development sideways. He was a personal trainer, then moved into IT operations, then taught himself to code. His first real project was an internal inventory app built to replace device spreadsheets that drifted apart and contradicted each other. That app got him onto the development team.
 
-## What I work on
+## What Mike works on now
 
-Describe the kind of work you do day to day. Frontend, backend, full stack, data, infrastructure. Mention the problems you enjoy and the ones you avoid.
+Mike builds document pipelines, retrieval-augmented assistants and web apps, and he runs the identity, device and network layer underneath them. He works daily with agentic AI tooling (Claude Code and MCP servers) and teaches other people to use it properly.
 
-## Skills and tools
+## Document extraction pipeline
 
-TypeScript, React, Next.js, Node.js, Python, PostgreSQL, Docker, Git. Add or remove to match reality, and say which ones you're strongest in.
+Mike's strongest piece of work. Compliance documents arrived as unstructured PDFs, and extracting the required fields by hand was slow and error-prone. In a regulated setting, accuracy is not optional.
 
-## Projects
+He built an end-to-end pipeline that ingests the PDFs, extracts structured data, and tracks every job in a database so nothing is lost or silently reprocessed. Processing runs in parallel across documents. Job state lives in the database rather than in memory, which gives retries, idempotency and an audit trail.
 
-### Project One
+## Internal documentation assistant
 
-A short description of Project One: what it does, who it's for, what you built, and what the outcome was. Link: https://example.com. Stack: Next.js, TypeScript, Postgres.
+Technical documentation lived in a hosted help system, and finding an answer meant already knowing where to look. New joiners and non-technical staff did not.
 
-### Project Two
+Mike built a retrieval-augmented (RAG) assistant over the documentation. You ask in plain language and get an answer grounded in the real docs, with citations back to the source page. The citations were the point: without them an internal assistant is a liability rather than a tool. It received positive internal feedback.
 
-A short description of Project Two. Stack: React, Node, Redis. Source: https://github.com/yourhandle/project-two.
+## AskTheRoom
 
-### Project Three
+A QR-code Q&A app Mike built for a paediatric conference. Roving microphones are slow, and the quietest people in the room never ask anything. Attendees scan a code, submit questions from their phones, and the room sees them in realtime. No account creation, no app install. Mike wrote a full spec before writing any code. Stack: Next.js, Vercel, Supabase.
 
-A short description of Project Three. Stack: Python, FastAPI.
+## Pooty Box
 
-## How I like to work
+Mike's own product: real living-grass dog potty patches. The site has to explain a product people have not seen before and take payment on the spot. It is a single product, single page, with full checkout. He used Stripe Checkout rather than a custom payment form, which keeps card data off his infrastructure entirely. Stack: Next.js 16 (App Router, TypeScript), React 19, Tailwind CSS v4, Framer Motion, Stripe Checkout.
 
-A few sentences on your working style: remote or on site, async communication, how you handle scope and deadlines, what kind of collaborators you enjoy.
+## Inventory app
 
-## Availability
+Device inventory was spread across spreadsheets that drifted apart and contradicted each other. Mike built an internal app to replace them. It is the project that moved him from IT operations onto the development team.
 
-State whether you're open to freelance, contract, or full time work, your rough availability, and your time zone.
+## Infrastructure and IT administration
+
+Mike is a developer who can also be trusted with identity, devices and the network. Things he has done:
+
+- SAML single sign-on with Keycloak against a cloud identity provider
+- Google Drive API integration using a service account routed through an internal group, to work within organisation-level sharing restrictions
+- MDM enrolment and full-disk encryption (BitLocker) workflows for device onboarding
+- Recovering encrypted devices after firmware and Secure Boot changes
+- Firewall (FortiGate) and biometric access terminal management
+- Kubernetes on AWS EKS and CircleCI pipelines
+
+## AI tooling and teaching
+
+- Runs an internal AI training series for non-technical staff
+- Led a developer guild session on MCP server security
+- Builds daily with Claude Code and MCP tooling
+- Anthropic Academy certified: AI Fluency and Claude 101
+- Currently working on agentic loop design: the act, verify, decide pattern and exit criteria, using a booking app as the test case
+
+## Skills
+
+Frontend: Next.js, React, TypeScript, Tailwind CSS, Framer Motion.
+Backend and data: Supabase, PostgreSQL, RAG pipelines, vector search, document extraction.
+Infrastructure: AWS, Kubernetes (EKS), CircleCI, Vercel.
+IT and identity: MDM, BitLocker, Keycloak, SAML, FortiGate, GCP service accounts.
+AI: Claude Code, MCP servers, agentic workflow design.
+Payments: Stripe.
+
+## This portfolio site
+
+This site is built with Next.js 16, Tailwind CSS v4 and TypeScript, deployed on Vercel. The chat assistant on the homepage is a retrieval-augmented generation (RAG) system Mike built: content is chunked and embedded locally with all-MiniLM-L6-v2, stored in Supabase with pgvector, and answers are generated by Groq. The site itself is an example of the stack Mike uses daily.
 
 ## Contact
 
-Email: your.email@example.com
-GitHub: https://github.com/yourhandle
-LinkedIn: https://linkedin.com/in/yourhandle
+GitHub: https://github.com/Mikechamp17
 
-## Frequently asked questions
-
-### Are you looking for a job?
-
-Answer honestly in one or two sentences.
-
-### What's your rate?
-
-Say how you prefer to discuss this, for example "depends on scope, email me".
-
-### Can you help with my project?
-
-Describe the kind of projects you take on and how to reach you.
+Mike's email address and LinkedIn are listed in the contact section of the site.

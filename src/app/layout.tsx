@@ -14,8 +14,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Your Name — Software Engineer",
-  description: "Portfolio of Your Name, a software engineer.",
+  title: "Mike Schaerer — Full-stack developer & IT administrator",
+  description:
+    "Full-stack developer and IT administrator in Malta. Document pipelines, retrieval assistants and web apps, plus the identity, device and network layer underneath them.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

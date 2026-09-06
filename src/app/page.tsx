@@ -3,7 +3,29 @@ import { SectionHeading } from "@/components/section-heading";
 import { ProjectCard } from "@/components/project-card";
 import { Typewriter } from "@/components/typewriter";
 import { AskMe } from "@/components/ask-me";
-import { projects, skills, socials } from "@/lib/data";
+import {
+  infrastructure,
+  profile,
+  projects,
+  skillGroups,
+  socials,
+  teaching,
+} from "@/lib/data";
+
+function BulletList({ items }: { items: string[] }) {
+  return (
+    <ul className="flex flex-col gap-2 text-sm leading-relaxed text-ink-soft">
+      {items.map((item) => (
+        <li key={item} className="flex gap-3">
+          <span className="font-mono text-accent" aria-hidden>
+            –
+          </span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export default function Home() {
   return (
@@ -13,18 +35,17 @@ export default function Home() {
       <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-20 px-6 py-20">
         <section id="hero" className="flex flex-col gap-4">
           <p className="font-mono text-xs uppercase tracking-widest text-muted">
-            Software Engineer
+            {profile.role}
           </p>
           <h1 className="font-mono text-4xl font-medium text-ink sm:text-5xl">
-            <Typewriter text="Your Name" />
+            <Typewriter text={profile.name} />
           </h1>
           <p className="max-w-xl text-lg leading-relaxed text-ink-soft">
-            I build web apps, APIs, and the occasional automation script.
-            Currently open to freelance work and collaboration.
+            {profile.headline} {profile.intro}
           </p>
           <div className="mt-2 flex gap-5 font-mono text-sm">
-            <a href="#projects" className="text-accent hover:text-ink">
-              View projects ↓
+            <a href="#work" className="text-accent hover:text-ink">
+              View work ↓
             </a>
             <a href="#contact" className="text-ink-soft hover:text-accent">
               Get in touch
@@ -35,34 +56,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="about" className="flex flex-col">
-          <SectionHeading index="01">About</SectionHeading>
-          <div className="flex flex-col gap-6">
-            <p className="max-w-xl leading-relaxed text-ink-soft">
-              Replace this paragraph with a couple of sentences about your
-              background: what you work on, what you care about, and what kind
-              of problems you like solving. Keep it short.
-            </p>
-            <div>
-              <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted">
-                Skills
-              </p>
-              <ul className="flex flex-wrap gap-2 font-mono text-xs">
-                {skills.map((skill) => (
-                  <li
-                    key={skill}
-                    className="rounded border border-line bg-paper-raised px-2.5 py-1 text-ink-soft"
-                  >
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section id="projects" className="flex flex-col">
-          <SectionHeading index="02">Projects</SectionHeading>
+        <section id="work" className="flex flex-col">
+          <SectionHeading index="01">Work</SectionHeading>
           <ul className="flex flex-col gap-4">
             {projects.map((project) => (
               <ProjectCard key={project.slug} project={project} />
@@ -70,8 +65,50 @@ export default function Home() {
           </ul>
         </section>
 
+        <section id="infrastructure" className="flex flex-col">
+          <SectionHeading index="02">Infrastructure</SectionHeading>
+          <p className="mb-5 max-w-xl leading-relaxed text-ink-soft">
+            Not a project, a capability. I&apos;m a developer who can also be
+            trusted with identity, devices and the network.
+          </p>
+          <BulletList items={infrastructure} />
+        </section>
+
+        <section id="ai" className="flex flex-col">
+          <SectionHeading index="03">AI tooling and teaching</SectionHeading>
+          <BulletList items={teaching} />
+        </section>
+
+        <section id="about" className="flex flex-col">
+          <SectionHeading index="04">About</SectionHeading>
+          <div className="flex max-w-xl flex-col gap-4 leading-relaxed text-ink-soft">
+            {profile.bio.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-col gap-5">
+            {skillGroups.map((group) => (
+              <div key={group.label}>
+                <p className="mb-2 font-mono text-xs uppercase tracking-widest text-muted">
+                  {group.label}
+                </p>
+                <ul className="flex flex-wrap gap-2 font-mono text-xs">
+                  {group.items.map((item) => (
+                    <li
+                      key={item}
+                      className="rounded border border-line bg-paper-raised px-2.5 py-1 text-ink-soft"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section id="contact" className="flex flex-col">
-          <SectionHeading index="03">Contact</SectionHeading>
+          <SectionHeading index="05">Contact</SectionHeading>
           <p className="mb-6 max-w-xl leading-relaxed text-ink-soft">
             Have a project in mind or just want to say hi? My inbox is open.
           </p>
@@ -89,7 +126,7 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-line px-6 py-6 text-center font-mono text-xs text-muted">
-        © {new Date().getFullYear()} Your Name
+        © {new Date().getFullYear()} {profile.name}
       </footer>
     </>
   );

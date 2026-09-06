@@ -20,8 +20,9 @@ export function ProjectCard({ project }: { project: Project }) {
           )}
         </div>
       </div>
+      <p className="mt-3 text-sm leading-relaxed text-muted">{project.problem}</p>
       <p className="mt-2 text-sm leading-relaxed text-ink-soft">
-        {project.description}
+        {project.solution}
       </p>
       <ul className="mt-4 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-muted">
         {project.stack.map((tech) => (

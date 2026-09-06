@@ -5,9 +5,9 @@ import { useEffect, useRef, useState } from "react";
 type Message = { role: "user" | "assistant"; content: string };
 
 const suggestions = [
-  "What do you build?",
-  "Are you available for freelance?",
-  "What's your stack?",
+  "What has Mike built?",
+  "How did he get into development?",
+  "What's his infrastructure experience?",
 ];
 
 export function AskMe() {
