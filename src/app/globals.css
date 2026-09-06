@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #faf9f5;
+  --paper-raised: #ffffff;
+  --ink: #191a1c;
+  --ink-soft: #4b4d52;
+  --muted: #8a8d94;
+  --line: #dedad0;
+  --line-soft: #e9e6dd;
+  --accent: #b45309;
+  --accent-soft: #f2e4d3;
+  --string: #3f6b3f;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-soft: var(--line-soft);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-string: var(--string);
+  --font-mono: var(--font-mono);
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  background-image: radial-gradient(var(--line-soft) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+a {
+  text-underline-offset: 3px;
+}
+
+@keyframes caret-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.caret {
+  animation: caret-blink 1s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caret {
+    animation: none;
+  }
+}
