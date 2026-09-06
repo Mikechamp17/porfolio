@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "npm run ingest",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "ingest": "node --env-file=.env.local --import tsx scripts/ingest.ts"
+    "ingest": "node --env-file-if-exists=.env.local --import tsx scripts/ingest.ts"
   },
   "dependencies": {
     "@huggingface/transformers": "^4.2.0",

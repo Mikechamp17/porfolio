@@ -43,7 +43,7 @@ Personal portfolio on Next.js 16 + Tailwind v4, with an "ask me anything" chat t
 
 ## Deploying to Vercel
 
-Set `GROQ_API_KEY`, `SUPABASE_URL`, and `SUPABASE_PUBLISHABLE_KEY` in the project's environment variables. The service role key is not needed at runtime. The first chat request after a cold start downloads the embedding model (about 25 MB) into `/tmp`, so expect a few seconds of latency once per instance.
+Set all four variables (`GROQ_API_KEY`, `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_SERVICE_ROLE_KEY`) in the project's environment variables. `npm run build` runs `ingest` first, so every deploy re-syncs `content/*.md` into Supabase; if the Supabase keys are missing the step logs a warning and the build continues. The first chat request after a cold start downloads the embedding model (about 25 MB) into `/tmp`, so expect a few seconds of latency once per instance.
 
 ## Abuse limits
 

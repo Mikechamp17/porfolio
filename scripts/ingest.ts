@@ -16,6 +16,13 @@ const CONTENT_DIR = path.join(process.cwd(), "content");
 const BATCH = 16;
 
 async function main() {
+  if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    console.warn(
+      "ingest: SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY not set, skipping. The chat will have nothing to answer from until you run `npm run ingest` with them.",
+    );
+    return;
+  }
+
   const files = (await readdir(CONTENT_DIR)).filter((f) => f.endsWith(".md"));
   if (files.length === 0) throw new Error(`No markdown files in ${CONTENT_DIR}`);
 
