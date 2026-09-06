@@ -2,6 +2,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SectionHeading } from "@/components/section-heading";
 import { ProjectCard } from "@/components/project-card";
 import { Typewriter } from "@/components/typewriter";
+import { AskMe } from "@/components/ask-me";
 import { projects, skills, socials } from "@/lib/data";
 
 export default function Home() {
@@ -28,6 +29,9 @@ export default function Home() {
             <a href="#contact" className="text-ink-soft hover:text-accent">
               Get in touch
             </a>
+          </div>
+          <div className="mt-6 max-w-xl">
+            <AskMe />
           </div>
         </section>
 

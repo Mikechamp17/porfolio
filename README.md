@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# porfolio
 
-## Getting Started
+Personal portfolio on Next.js 16 + Tailwind v4, with an "ask me anything" chat that answers from your own content using retrieval-augmented generation (RAG).
 
-First, run the development server:
+## How the chat works
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. `content/*.md` is the only source of truth for what the assistant knows.
+2. `npm run ingest` splits the markdown into chunks, embeds them locally with `Xenova/all-MiniLM-L6-v2` (transformers.js, no API key), and syncs them into a Supabase `chunks` table (pgvector).
+3. `POST /api/chat` embeds the visitor's question, pulls the closest chunks via the `match_chunks` RPC, and streams an answer from Groq's free tier.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Install and configure:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   npm install
+   cp .env.example .env.local   # then fill it in
+   ```
 
-## Learn More
+   | Variable | Where to get it |
+   | --- | --- |
+   | `GROQ_API_KEY` | https://console.groq.com/keys |
+   | `GROQ_MODEL` | optional, defaults to `llama-3.3-70b-versatile` |
+   | `SUPABASE_URL` | Supabase → Project Settings → API |
+   | `SUPABASE_PUBLISHABLE_KEY` | same page, "publishable" key |
+   | `SUPABASE_SERVICE_ROLE_KEY` | same page, "service_role" key. Local and CI only, never in the browser. |
 
-To learn more about Next.js, take a look at the following resources:
+2. Create the table and RPC once per Supabase project by running `supabase/migrations/20260906_create_chunks.sql` in the SQL editor.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Write your content in `content/me.md`, then embed it:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   npm run ingest
+   ```
 
-## Deploy on Vercel
+   Re-run after every content edit. Unchanged chunks are skipped, removed ones are deleted.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Run the site:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   npm run dev
+   ```
+
+## Deploying to Vercel
+
+Set `GROQ_API_KEY`, `SUPABASE_URL`, and `SUPABASE_PUBLISHABLE_KEY` in the project's environment variables. The service role key is not needed at runtime. The first chat request after a cold start downloads the embedding model (about 25 MB) into `/tmp`, so expect a few seconds of latency once per instance.
+
+## Abuse limits
+
+The chat route caps conversations at 12 turns and 1000 characters per message, and rate-limits each IP to 20 requests per 10 minutes per server instance. Groq's free tier adds its own per-minute and per-day limits on top.
