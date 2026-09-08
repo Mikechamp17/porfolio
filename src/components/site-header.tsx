@@ -3,7 +3,6 @@ import { profile } from "@/lib/data";
 const links = [
   { href: "#work", label: "Work" },
   { href: "#skills", label: "Skills" },
-  { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -14,7 +13,7 @@ export function SiteHeader() {
         <a href="#" className="whitespace-nowrap text-ink hover:text-accent">
           {profile.name}
         </a>
-        <nav className="flex items-center gap-3 text-xs sm:gap-5 sm:text-sm">
+        <nav className="flex items-center gap-4 sm:gap-5">
           {links.map((link) => (
             <a
               key={link.href}
