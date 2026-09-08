@@ -1,113 +1,197 @@
 export const profile = {
   name: "Mike Schaerer",
-  role: "Full-stack developer · IT administrator",
-  headline: "I build the product and run the infrastructure it sits on.",
+  title: "Full-Stack AI Developer",
+  location: "Malta",
+  tagline:
+    "I build internal AI tools end to end — from the first sketch to the thing running in production.",
   intro:
-    "Self-taught, based in Malta, working on a regulated platform in the iGaming sector.",
+    "I'm a full-stack developer working on AI-powered internal tools for a B2B iGaming company in Malta. I build the whole thing — the interface, the backend, the deployment, and the support after it ships. Most of my work is about taking something slow and manual and turning it into something people can do in a few clicks.",
   bio: [
-    "I'm a self-taught full-stack developer and IT administrator based in Malta, working on a regulated platform in the iGaming sector.",
-    "I came into development sideways. I was a personal trainer, then moved into IT operations, then taught myself to code and built an internal inventory app to replace the spreadsheets nobody trusted. That got me onto the development team.",
-    "I now build document pipelines, retrieval assistants and web apps, and I run the identity, device and network layer underneath them. I work daily with agentic AI tooling and I teach other people to use it properly.",
+    "I left South Africa for Malta with very little, and started out as a part-time IT technician — fixing laptops, setting up accounts, keeping the office running. I taught myself to code alongside the job, and moved onto a small rapid-development team building AI-powered tools for the business.",
+    "Now I build those tools end to end. I design them, write the frontend and backend, deploy them, and support them once they're live. Owning the whole lifecycle changes how you build: I care a lot about keeping things simple, because I'm the one who gets the call when they break.",
+    "Alongside the development work, I co-host an internal AI education series that teaches non-technical teams how to actually use AI tools in their day-to-day work — and I'm the person the team puts in front of the camera for internal demos.",
   ],
+  beyond: [
+    "Came to Malta with nothing and built a career from the ground up",
+    "Self-taught route into development, via IT operations",
+    "Comfortable being the public face of a team: presenting, demoing, teaching",
+    "Working through a structured software architecture curriculum in my own time",
+  ],
+  closing: "Open to conversations about full-stack and AI engineering roles.",
 };
+
+export const pillars: { title: string; body: string }[] = [
+  {
+    title: "Build",
+    body: "Full-stack web apps — the screens people click on, the backend that powers them, and the database underneath. Angular on the front, Python on the back.",
+  },
+  {
+    title: "Ship",
+    body: "I don't hand off at \"it works on my machine.\" I deploy to Kubernetes, wire up the pipelines, and run the thing in production.",
+  },
+  {
+    title: "Teach",
+    body: "I run internal sessions that show non-technical teams how to get real value out of AI tools — and turn what they learn into working automations.",
+  },
+];
 
 export type Project = {
   slug: string;
   name: string;
-  problem: string;
-  solution: string;
+  what: string;
+  role: string;
+  result: string;
   stack: string[];
-  href?: string;
-  repo?: string;
 };
 
 export const projects: Project[] = [
   {
-    slug: "document-extraction-pipeline",
-    name: "Document extraction pipeline",
-    problem:
-      "Compliance documents arrived as unstructured PDFs. Extracting the required fields by hand was slow and error-prone, and in a regulated setting accuracy is not optional.",
-    solution:
-      "An end-to-end pipeline that ingests the PDFs, extracts structured data, and tracks every job in a database so nothing is lost or silently reprocessed. Processing runs in parallel across documents. Job state lives in the database rather than in memory, which gives retries, idempotency and an audit trail.",
-    stack: ["PDF ingestion", "Parallel processing", "Database-backed jobs", "Audit trail"],
+    slug: "ai-documentation-assistant",
+    name: "AI Documentation Assistant",
+    what: "A chat tool that answers questions about the company's technical documentation and links you straight to the exact page it got the answer from. Instead of hunting through hundreds of help articles, you ask a question and get a sourced answer.",
+    role: "Took over the core search engine from a senior colleague and built everything around it — the login and access control, the interface, and a repeatable test suite that measures whether the answers are actually correct.",
+    result:
+      "Live company-wide, used across departments. Replaced a paid third-party tool that wasn't accurate enough for the business's domain.",
+    stack: ["Python", "FastAPI", "RAG", "Keycloak SSO", "Kubernetes"],
   },
   {
-    slug: "documentation-assistant",
-    name: "Internal documentation assistant",
-    problem:
-      "Technical documentation lived in a hosted help system. Finding an answer meant already knowing where to look, which new joiners and non-technical staff did not.",
-    solution:
-      "A retrieval-augmented assistant over the documentation. Ask in plain language and get an answer grounded in the real docs, with citations back to the source page. The citations were the point: without them an internal assistant is a liability rather than a tool.",
-    stack: ["RAG", "Vector search", "Citations"],
+    slug: "compliance-certificate-manager",
+    name: "Compliance Certificate Manager",
+    what: "A system for tracking regulatory certificates across a heavily regulated industry. It reads the official certification PDFs, pulls out the important details automatically, and keeps track of what's valid, what's expiring, and what's covered.",
+    role: "Designed and built it end to end — the data model, the document extraction, the API, and the deployment. Wrote a full test plan against real certification documents from multiple regulatory bodies.",
+    result:
+      "Turns a manual document-reading exercise into structured, searchable data.",
+    stack: ["Python", "FastAPI", "PostgreSQL", "AWS S3", "LLM document extraction"],
   },
   {
-    slug: "asktheroom",
+    slug: "operations-self-service-portal",
+    name: "Operations Self-Service Portal",
+    what: "Gives the operations team a simple interface to do things that previously required a developer — managing account settings, email templates, and customer mailers.",
+    role: "Chose the architecture and built it. Deliberately kept the moving parts to a minimum so it's cheap to run and easy to support.",
+    result: "Fewer interruptions for engineers, faster turnaround for the ops team.",
+    stack: ["Angular", "FastAPI", "PostgreSQL", "Keycloak"],
+  },
+  {
+    slug: "email-automation-agent",
+    name: "Email Automation Agent",
+    what: "Watches an inbox for a specific type of incoming email, works out which response template fits, and prepares a draft reply automatically. A human still reviews and sends.",
+    role: "Built it solo as a lightweight automation — no servers to maintain.",
+    result: "Cuts a repetitive daily task down to a quick review.",
+    stack: ["Google Apps Script", "LLM API"],
+  },
+  {
+    slug: "device-fleet-management",
+    name: "Device Fleet & Asset Management",
+    what: "Brought the company's laptops and devices under proper management — a single source of truth for who has what, tied to automated device enrolment and security policies.",
+    role: "Ran the audit, designed the data model, and handled the rollout.",
+    result: "A messy spreadsheet situation became a maintained asset system.",
+    stack: ["JumpCloud MDM", "Snipe-IT"],
+  },
+  {
+    slug: "discuss-business-ai",
+    name: "\"Discuss Business AI\" — Internal Education Series",
+    what: "A recurring session series I co-host teaching non-technical teams how to use AI tools properly — not demos, but practical workflows they can use the same afternoon.",
+    role: "Covered so far: AI assistants and custom agents, research and knowledge tools, and building real email and workflow automations.",
+    result:
+      "Being able to explain this stuff clearly to non-engineers is half the job.",
+    stack: ["AI assistants", "Custom agents", "Workflow automation"],
+  },
+];
+
+export type SideProject = {
+  name: string;
+  what: string;
+  stack: string[];
+  href?: string;
+};
+
+export const sideProjects: SideProject[] = [
+  {
     name: "AskTheRoom",
-    problem:
-      "Audience questions at a paediatric conference. Roving microphones are slow, and the quietest people in the room never ask anything.",
-    solution:
-      "A QR-code Q&A app. Attendees scan, submit from their phones, and the room sees the questions in realtime. No account creation, no app install. I wrote a full spec before writing any code.",
-    stack: ["Next.js", "Vercel", "Supabase"],
+    what: "QR-code Q&A for a paediatric conference. Attendees scan, submit from their phones, and the room sees questions in realtime. No account, no install.",
+    stack: ["Next.js", "Supabase", "Vercel"],
   },
   {
-    slug: "pooty-box",
     name: "Pooty Box",
-    problem:
-      "My own product. Selling real living-grass dog potty patches needs a site that explains a product people have not seen before and takes payment on the spot.",
-    solution:
-      "Single product, single page, full checkout. Stripe Checkout rather than a custom payment form, which keeps card data off my infrastructure entirely.",
-    stack: ["Next.js 16", "React 19", "Tailwind CSS v4", "Framer Motion", "Stripe Checkout"],
+    what: "My own product: living-grass dog potty patches. Single page, full checkout, card data kept off my infrastructure via Stripe Checkout.",
+    stack: ["Next.js", "Stripe"],
   },
   {
-    slug: "inventory-app",
-    name: "Inventory app",
-    problem:
-      "Device inventory spread across spreadsheets that drifted apart and contradicted each other.",
-    solution:
-      "An internal app to replace them. It is the project that moved me from IT operations onto the development team.",
-    stack: ["Internal tool"],
+    name: "This site",
+    what: "The chat above is a retrieval-augmented assistant over my own content: local embeddings, pgvector on Supabase, answers streamed from Groq.",
+    stack: ["Next.js", "pgvector", "RAG"],
+    href: "https://github.com/Mikechamp17/porfolio",
   },
-];
-
-export const infrastructure: string[] = [
-  "SAML single sign-on with Keycloak against a cloud identity provider",
-  "Google Drive API integration using a service account routed through an internal group, to work within organisation-level sharing restrictions",
-  "MDM enrolment and full-disk encryption workflows for device onboarding",
-  "Recovering encrypted devices after firmware and Secure Boot changes",
-  "Firewall and biometric access terminal management",
-  "Kubernetes on AWS EKS, CircleCI pipelines",
-];
-
-export const teaching: string[] = [
-  "Run an internal AI training series for non-technical staff",
-  "Led a developer guild session on MCP server security",
-  "Build daily with Claude Code and MCP tooling",
-  "Anthropic Academy certified: AI Fluency, Claude 101",
-  "Working on agentic loop design, the act, verify, decide pattern and exit criteria, using a booking app as the test case",
 ];
 
 export const skillGroups: { label: string; items: string[] }[] = [
+  { label: "Frontend", items: ["Angular", "TypeScript", "HTML/CSS", "Next.js"] },
   {
-    label: "Frontend",
-    items: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    label: "Backend",
+    items: ["Python", "FastAPI", "PostgreSQL", "REST APIs"],
   },
   {
-    label: "Backend and data",
-    items: ["Supabase", "PostgreSQL", "RAG pipelines", "Vector search", "Document extraction"],
+    label: "AI & LLMs",
+    items: [
+      "Retrieval-augmented generation (RAG)",
+      "LLM-powered document extraction",
+      "Prompt design",
+      "Evaluation and testing of AI outputs",
+    ],
   },
   {
-    label: "Infrastructure",
-    items: ["AWS", "Kubernetes (EKS)", "CircleCI", "Vercel"],
+    label: "Infrastructure & DevOps",
+    items: ["Kubernetes", "ArgoCD", "AWS", "CI/CD pipelines", "Docker"],
   },
   {
-    label: "IT and identity",
-    items: ["MDM", "BitLocker", "Keycloak", "SAML", "FortiGate", "GCP service accounts"],
+    label: "Auth & Security",
+    items: ["Keycloak", "SSO / OAuth", "Access control"],
   },
   {
-    label: "AI",
-    items: ["Claude Code", "MCP servers", "Agentic workflow design"],
+    label: "IT Operations",
+    items: ["JumpCloud MDM", "Device management", "Asset management"],
   },
-  { label: "Payments", items: ["Stripe"] },
+];
+
+export type Experience = {
+  role: string;
+  org: string;
+  period: string;
+  body: string;
+};
+
+export const experience: Experience[] = [
+  {
+    role: "Full-Stack AI Developer",
+    org: "B2B iGaming company, Malta",
+    period: "Present",
+    body: "Building AI-powered internal tools end to end: architecture, frontend, backend, deployment and production support. Also co-host the company's internal AI education series.",
+  },
+  {
+    role: "IT Technician",
+    org: "Same company",
+    period: "Earlier",
+    body: "Started part-time handling device management, onboarding and day-to-day IT support. Taught myself to code and moved into development.",
+  },
+];
+
+export const principles: { title: string; body: string }[] = [
+  {
+    title: "Fewer moving parts wins.",
+    body: "I own deployment and support, so I'd rather build something simple I can fix at 9pm than something clever I can't.",
+  },
+  {
+    title: "Ship it, then improve it.",
+    body: "Real usage tells you more than planning does.",
+  },
+  {
+    title: "Write things down.",
+    body: "Every problem solved becomes a note, a test, or a template so the next one is faster.",
+  },
+  {
+    title: "Explain it plainly.",
+    body: "If I can't describe what a tool does to someone non-technical, it's probably not designed well enough.",
+  },
 ];
 
 export const socials: { label: string; value: string; href: string }[] = [

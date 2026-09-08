@@ -14,9 +14,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mike Schaerer — Full-stack developer & IT administrator",
+  title: "Mike Schaerer — Full-Stack AI Developer",
   description:
-    "Full-stack developer and IT administrator in Malta. Document pipelines, retrieval assistants and web apps, plus the identity, device and network layer underneath them.",
+    "Full-stack developer in Malta building AI-powered internal tools end to end: frontend, backend, deployment, and support.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

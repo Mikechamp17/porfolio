@@ -2,7 +2,7 @@ import { profile } from "@/lib/data";
 
 const links = [
   { href: "#work", label: "Work" },
-  { href: "#infrastructure", label: "Infra" },
+  { href: "#skills", label: "Skills" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
 ];
