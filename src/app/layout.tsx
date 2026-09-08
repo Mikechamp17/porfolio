@@ -14,7 +14,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mike Schaerer — Full-Stack AI Developer",
+  title: "Michael Schaerer — Full-Stack AI Developer",
   description:
     "Full-stack developer in Malta building AI-powered internal tools end to end: frontend, backend, deployment, and support.",
 };

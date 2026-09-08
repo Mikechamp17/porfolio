@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 type Message = { role: "user" | "assistant"; content: string };
 
 const suggestions = [
-  "What does Mike build?",
+  "What does Michael build?",
   "How did he get into development?",
   "Tell me about the documentation assistant",
 ];

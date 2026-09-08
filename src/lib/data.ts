@@ -1,5 +1,5 @@
 export const profile = {
-  name: "Mike Schaerer",
+  name: "Michael Schaerer",
   title: "Full-Stack AI Developer",
   location: "Malta",
   tagline:
