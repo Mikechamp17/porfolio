@@ -1,14 +1,16 @@
 # About Michael Schaerer
 
-Michael Schaerer is a Full-Stack AI Developer based in Malta. He builds internal AI tools end to end, from the first sketch to the thing running in production, for a B2B iGaming company. He builds the whole thing: the interface, the backend, the deployment, and the support after it ships. Most of his work is about taking something slow and manual and turning it into something people can do in a few clicks.
+Michael Schaerer is a Full-Stack AI Developer based in Malta. He builds internal AI tools end to end, from the first sketch to the thing running in production: the interface, the backend, the deployment, and the support after it ships. Most of his work is about taking something slow and manual and turning it into something people can do in a few clicks.
+
+Michael does not discuss his employer publicly. If someone asks where he works or has worked, the answer is that he keeps that private and is happy to talk about it directly.
 
 ## How Michael got into development
 
-Michael left South Africa for Malta with very little and started out as a part-time IT technician: fixing laptops, setting up accounts, keeping the office running. He taught himself to code alongside the job, then moved onto a small rapid-development team building AI-powered tools for the business. He came into development via IT operations, entirely self-taught.
+Michael left South Africa for Malta with very little and started out as a part-time IT technician: fixing laptops, setting up accounts, keeping things running. He taught himself to code alongside the job, then moved onto a small rapid-development team building AI-powered tools. He came into development via IT operations, entirely self-taught.
 
 ## What Michael does now
 
-Michael designs internal tools, writes the frontend and backend, deploys them, and supports them once they're live. Owning the whole lifecycle shapes how he builds: he keeps things simple because he's the one who gets the call when they break. He also co-hosts an internal AI education series for non-technical teams and is the person the team puts in front of the camera for internal demos.
+Michael designs internal tools, writes the frontend and backend, deploys them, and supports them once they're live. Owning the whole lifecycle shapes how he builds: he keeps things simple because he's the one who gets the call when they break. He also co-hosts an internal AI education series for non-technical teams and is the person put in front of the camera for internal demos.
 
 ## Build, ship, teach
 
@@ -20,15 +22,15 @@ Teach: he runs internal sessions that show non-technical teams how to get real v
 
 ## AI Documentation Assistant
 
-A chat tool that answers questions about the company's technical documentation and links you straight to the exact page it got the answer from. Instead of hunting through hundreds of help articles, you ask a question and get a sourced answer.
+A chat tool that answers questions about a large body of internal technical documentation and links you straight to the exact page it got the answer from. Instead of hunting through hundreds of help articles, you ask a question and get a sourced answer.
 
 Michael's role: took over the core search engine from a senior colleague and built everything around it: the login and access control, the interface, and a repeatable test suite that measures whether the answers are actually correct.
 
-Result: live company-wide, used across departments. It replaced a paid third-party tool that wasn't accurate enough for the business's domain. Built with Python, FastAPI, retrieval-augmented generation (RAG), Keycloak SSO, and Kubernetes.
+Result: in production and used across teams. It replaced a paid third-party tool that wasn't accurate enough for the specialist subject matter. Built with Python, FastAPI, retrieval-augmented generation (RAG), Keycloak SSO, and Kubernetes.
 
 ## Compliance Certificate Manager
 
-A system for tracking regulatory certificates across a heavily regulated industry. It reads the official certification PDFs, pulls out the important details automatically, and keeps track of what's valid, what's expiring, and what's covered.
+A system for tracking regulatory certificates. It reads the official certification PDFs, pulls out the important details automatically, and keeps track of what's valid, what's expiring, and what's covered.
 
 Michael's role: designed and built it end to end, the data model, the document extraction, the API, and the deployment. Wrote a full test plan against real certification documents from multiple regulatory bodies.
 
@@ -36,7 +38,7 @@ Result: turns a manual document-reading exercise into structured, searchable dat
 
 ## Operations Self-Service Portal
 
-Gives the operations team a simple interface to do things that previously required a developer: managing account settings, email templates, and customer mailers.
+Gives an operations team a simple interface to do things that previously required a developer: managing account settings, email templates, and customer mailers.
 
 Michael's role: chose the architecture and built it, deliberately keeping the moving parts to a minimum so it's cheap to run and easy to support.
 
@@ -50,11 +52,11 @@ Michael built it solo as a lightweight automation with no servers to maintain. I
 
 ## Device Fleet and Asset Management
 
-Brought the company's laptops and devices under proper management: a single source of truth for who has what, tied to automated device enrolment and security policies.
+Brought a fleet of laptops and devices under proper management: a single source of truth for who has what, tied to automated device enrolment and security policies.
 
 Michael's role: ran the audit, designed the data model, and handled the rollout. A messy spreadsheet situation became a maintained asset system. Built with JumpCloud MDM and Snipe-IT.
 
-## Discuss Business AI, internal education series
+## Internal AI education series
 
 A recurring session series Michael co-hosts teaching non-technical teams how to use AI tools properly. Not demos, but practical workflows they can use the same afternoon. Covered so far: AI assistants and custom agents, research and knowledge tools, and building real email and workflow automations. Michael's view: being able to explain this stuff clearly to non-engineers is half the job.
 
@@ -77,9 +79,9 @@ IT operations: JumpCloud MDM, device management, asset management.
 
 ## Experience
 
-Full-Stack AI Developer at a B2B iGaming company in Malta (current role). Building AI-powered internal tools end to end: architecture, frontend, backend, deployment and production support. Also co-hosts the company's internal AI education series.
+Full-Stack AI Developer (current role). Building AI-powered internal tools end to end: architecture, frontend, backend, deployment and production support. Also co-hosts an internal AI education series.
 
-IT Technician at the same company (earlier role). Started part-time handling device management, onboarding and day-to-day IT support. Taught himself to code and moved into development.
+IT Technician (earlier role). Started part-time handling device management, onboarding and day-to-day IT support. Taught himself to code and moved into development.
 
 ## How Michael works
 
@@ -97,4 +99,4 @@ Michael came to Malta with nothing and built a career from the ground up. He too
 
 ## Availability and contact
 
-Michael is open to conversations about full-stack and AI engineering roles. GitHub: https://github.com/Mikechamp17. His email and LinkedIn are in the contact section of the site.
+Michael is open to full-stack and AI engineering roles, and to conversations about your project. GitHub: https://github.com/Mikechamp17. His email and LinkedIn are in the contact section of the site.

@@ -5,7 +5,7 @@ export const profile = {
   tagline:
     "I build internal AI tools end to end — from the first sketch to the thing running in production.",
   intro:
-    "Frontend, backend, deployment and support, for a B2B iGaming company in Malta. I turn slow manual processes into tools people trust.",
+    "Frontend, backend, deployment and support. I turn slow manual processes into tools people trust.",
   about:
     "Self-taught. I came to Malta from South Africa, started as an IT technician, taught myself to code, and moved onto the development team. I own what I build end to end, and I'm the one who presents it.",
   closing: "Open to full-stack and AI engineering roles, and to conversations about your project.",
@@ -21,7 +21,7 @@ export const projects: Project[] = [
   {
     name: "AI Documentation Assistant",
     summary:
-      "Ask a question, get a sourced answer with a link to the exact page. Live company-wide; replaced a paid tool that wasn't accurate enough.",
+      "Ask a question, get a sourced answer with a link to the exact page. In production across teams; replaced a paid tool that wasn't accurate enough.",
     stack: ["Python", "FastAPI", "RAG", "Keycloak", "Kubernetes"],
   },
   {
