@@ -121,13 +121,13 @@ export function AskMe() {
       {error && <p className="mt-3 font-mono text-xs text-accent">{error}</p>}
 
       {messages.length === 0 && (
-        <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
+        <div className="mt-2 flex flex-col items-start sm:mt-4 sm:flex-row sm:flex-wrap sm:gap-x-5 sm:gap-y-1">
           {suggestions.map((s) => (
             <button
               key={s}
               type="button"
               onClick={() => send(s)}
-              className="py-1.5 font-mono text-[11px] text-muted hover:text-accent"
+              className="py-1.5 font-mono text-[11px] text-muted hover:text-accent sm:py-2"
             >
               {s}
             </button>
