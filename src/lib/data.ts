@@ -9,56 +9,42 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "project-one",
-    name: "Project One",
+    slug: "imageleak",
+    name: "ImageLeak",
     description:
-      "A short one-line description of this project goes here. What it does and why it exists.",
-    stack: ["Next.js", "TypeScript", "Postgres"],
-    href: "https://example.com",
-    repo: "https://github.com/yourhandle/project-one",
+      "A browser-based tool that strips hidden metadata from photos without uploading them.",
+    stack: ["Client-side", "Privacy"],
   },
   {
-    slug: "project-two",
-    name: "Project Two",
+    slug: "portfolio-chat",
+    name: "This site's chat",
     description:
-      "Another placeholder project description. Swap this for real work once it's ready.",
-    stack: ["React", "Node", "Redis"],
-    repo: "https://github.com/yourhandle/project-two",
-  },
-  {
-    slug: "project-three",
-    name: "Project Three",
-    description: "A third example project entry with a live link only.",
-    stack: ["Python", "FastAPI"],
-    href: "https://example.com",
+      "A retrieval-augmented assistant that answers follow-ups from written notes on this site — and says when it does not know.",
+    stack: ["Next.js", "Supabase", "Groq"],
+    repo: "https://github.com/Mikechamp17/porfolio",
   },
 ];
 
 export const skills: string[] = [
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node.js",
   "Python",
+  "FastAPI",
   "PostgreSQL",
-  "Docker",
-  "Git",
+  "RAG",
+  "Kubernetes",
+  "Next.js",
+  "Angular",
+  "Claude API",
 ];
 
 export const socials: { label: string; value: string; href: string }[] = [
   {
-    label: "Email",
-    value: "your.email@example.com",
-    href: "mailto:your.email@example.com",
-  },
-  {
     label: "GitHub",
-    value: "github.com/yourhandle",
-    href: "https://github.com/yourhandle",
+    value: "github.com/Mikechamp17",
+    href: "https://github.com/Mikechamp17",
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/yourhandle",
-    href: "https://linkedin.com/in/yourhandle",
+    value: "linkedin.com/in/michael-schaerer-5619082a4",
+    href: "https://linkedin.com/in/michael-schaerer-5619082a4",
   },
 ];

@@ -13,21 +13,21 @@ export default function Home() {
       <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-20 px-6 py-20">
         <section id="hero" className="flex flex-col gap-4">
           <p className="font-mono text-xs uppercase tracking-widest text-muted">
-            Software Engineer
+            Full-stack Developer · Malta
           </p>
           <h1 className="font-mono text-4xl font-medium text-ink sm:text-5xl">
-            <Typewriter text="Your Name" />
+            <Typewriter text="Mike Schaerer" />
           </h1>
           <p className="max-w-xl text-lg leading-relaxed text-ink-soft">
-            I build web apps, APIs, and the occasional automation script.
-            Currently open to freelance work and collaboration.
+            I build AI tools end to end — retrieval, deployment, and the
+            interface people actually use. Software that does one job well.
           </p>
           <div className="mt-2 flex gap-5 font-mono text-sm">
             <a href="#projects" className="text-accent hover:text-ink">
               View projects ↓
             </a>
             <a href="#contact" className="text-ink-soft hover:text-accent">
-              Get in touch
+              Contact
             </a>
           </div>
           <div className="mt-6 max-w-xl">
@@ -39,9 +39,9 @@ export default function Home() {
           <SectionHeading index="01">About</SectionHeading>
           <div className="flex flex-col gap-6">
             <p className="max-w-xl leading-relaxed text-ink-soft">
-              Replace this paragraph with a couple of sentences about your
-              background: what you work on, what you care about, and what kind
-              of problems you like solving. Keep it short.
+              Full-stack developer focused on grounded AI and finished work.
+              Fewer moving parts, retrieval over improvisation, and a plain
+              &ldquo;I don&apos;t know&rdquo; when the source is silent.
             </p>
             <div>
               <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted">
@@ -73,7 +73,7 @@ export default function Home() {
         <section id="contact" className="flex flex-col">
           <SectionHeading index="03">Contact</SectionHeading>
           <p className="mb-6 max-w-xl leading-relaxed text-ink-soft">
-            Have a project in mind or just want to say hi? My inbox is open.
+            Say hello on GitHub or LinkedIn.
           </p>
           <ul className="flex flex-col gap-3 font-mono text-sm">
             {socials.map((social) => (
@@ -89,7 +89,7 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-line px-6 py-6 text-center font-mono text-xs text-muted">
-        © {new Date().getFullYear()} Your Name
+        © {new Date().getFullYear()} Mike Schaerer
       </footer>
     </>
   );
