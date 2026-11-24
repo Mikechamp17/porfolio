@@ -9,19 +9,25 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "imageleak",
-    name: "ImageLeak",
-    description:
-      "A browser-based tool that strips hidden metadata from photos without uploading them.",
-    stack: ["Client-side", "Privacy"],
+    slug: "asktheroom",
+    name: "AskTheRoom",
+    description: "Live conference Q&A.",
+    stack: [],
+    href: "https://asktheroom.org.mt",
   },
   {
-    slug: "portfolio-chat",
-    name: "This site's chat",
-    description:
-      "A retrieval-augmented assistant that answers follow-ups from written notes on this site — and says when it does not know.",
-    stack: ["Next.js", "Supabase", "Groq"],
-    repo: "https://github.com/Mikechamp17/porfolio",
+    slug: "pooty-box",
+    name: "Pooty Box",
+    description: "A page for real grass potty patches.",
+    stack: [],
+    href: "https://pottybox.vercel.app",
+  },
+  {
+    slug: "imageleak",
+    name: "ImageLeak",
+    description: "A browser check for hidden photo metadata.",
+    stack: [],
+    repo: "https://github.com/Mikechamp17/imageLeak",
   },
 ];
 

@@ -107,7 +107,7 @@ export function AskMe() {
           aria-label="Ask a question"
           maxLength={1000}
           disabled={busy}
-          className="min-w-0 flex-1 bg-transparent text-ink outline-none placeholder:text-muted"
+          className="min-w-0 flex-1 bg-transparent text-[16px] text-ink outline-none placeholder:text-muted"
         />
         <button
           type="submit"

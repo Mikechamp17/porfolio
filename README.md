@@ -24,6 +24,7 @@ Personal portfolio on Next.js 16 + Tailwind v4, with an "ask me anything" chat t
    | `SUPABASE_URL` | Supabase → Project Settings → API |
    | `SUPABASE_PUBLISHABLE_KEY` | same page, "publishable" key |
    | `SUPABASE_SERVICE_ROLE_KEY` | same page, "service_role" key. Local and CI only, never in the browser. |
+   | `NEXT_PUBLIC_CONTACT_EMAIL` | Optional. Leave blank to hide the email link. |
 
 2. Create the table and RPC once per Supabase project by running `supabase/migrations/20260906_create_chunks.sql` in the SQL editor.
 

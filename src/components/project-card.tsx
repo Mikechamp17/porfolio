@@ -23,11 +23,13 @@ export function ProjectCard({ project }: { project: Project }) {
       <p className="mt-2 text-sm leading-relaxed text-ink-soft">
         {project.description}
       </p>
-      <ul className="mt-4 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-muted">
-        {project.stack.map((tech) => (
-          <li key={tech}>{tech}</li>
-        ))}
-      </ul>
+      {project.stack.length > 0 && (
+        <ul className="mt-4 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-muted">
+          {project.stack.map((tech) => (
+            <li key={tech}>{tech}</li>
+          ))}
+        </ul>
+      )}
     </li>
   );
 }

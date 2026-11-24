@@ -43,7 +43,15 @@ System design, automated testing, cloud infrastructure and IAM, and observabilit
 - What he built: A browser-based tool that strips metadata from photos. Processing stays on the device; files do not need to be uploaded to a server.
 - Stack: Client-side web app.
 - Outcome: A small privacy tool that does one job: strip image metadata without sending the photo elsewhere.
-- Code: private for now.
+- Code: https://github.com/Mikechamp17/imageLeak
+
+## Project: AskTheRoom
+
+A live conference Q&A page. https://asktheroom.org.mt
+
+## Project: Pooty Box
+
+A page for real grass potty patches. https://pottybox.vercel.app
 
 ## Project: This site's chat
 

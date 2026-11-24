@@ -3,9 +3,12 @@ import { SectionHeading } from "@/components/section-heading";
 import { ProjectCard } from "@/components/project-card";
 import { Typewriter } from "@/components/typewriter";
 import { AskMe } from "@/components/ask-me";
+import { resolveEmail } from "@/lib/contact";
 import { projects, skills, socials } from "@/lib/data";
 
 export default function Home() {
+  const email = resolveEmail();
+
   return (
     <>
       <SiteHeader />
@@ -61,8 +64,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="projects" className="flex flex-col">
-          <SectionHeading index="02">Projects</SectionHeading>
+        <section id="projects" className="flex scroll-mt-24 flex-col">
+          <SectionHeading index="02">Selected work</SectionHeading>
           <ul className="flex flex-col gap-4">
             {projects.map((project) => (
               <ProjectCard key={project.slug} project={project} />
@@ -70,12 +73,20 @@ export default function Home() {
           </ul>
         </section>
 
-        <section id="contact" className="flex flex-col">
+        <section id="contact" className="flex scroll-mt-24 flex-col">
           <SectionHeading index="03">Contact</SectionHeading>
           <p className="mb-6 max-w-xl leading-relaxed text-ink-soft">
             Say hello on GitHub or LinkedIn.
           </p>
           <ul className="flex flex-col gap-3 font-mono text-sm">
+            {email && (
+              <li className="flex flex-wrap gap-x-4">
+                <span className="w-20 text-muted">{email.label}</span>
+                <a href={email.href} className="text-ink hover:text-accent">
+                  {email.value}
+                </a>
+              </li>
+            )}
             {socials.map((social) => (
               <li key={social.label} className="flex flex-wrap gap-x-4">
                 <span className="w-20 text-muted">{social.label}</span>
