@@ -70,12 +70,12 @@ export function AskMe() {
   }
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col">
       {messages.length > 0 && (
-        <div className="flex max-h-80 flex-col gap-3 overflow-y-auto rounded-md border border-line bg-paper-raised p-4 text-sm leading-relaxed">
+        <div className="mb-6 flex max-h-80 flex-col gap-5 overflow-y-auto text-sm leading-relaxed">
           {messages.map((m, i) => (
-            <div key={i} className="flex flex-col gap-1">
-              <span className="font-mono text-xs uppercase tracking-widest text-muted">
+            <div key={i} className="flex flex-col gap-1.5">
+              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted">
                 {m.role === "user" ? "You" : "Assistant"}
               </span>
               <p className="whitespace-pre-wrap text-ink-soft">
@@ -95,9 +95,9 @@ export function AskMe() {
           e.preventDefault();
           send(input);
         }}
-        className="flex items-center gap-2 rounded-md border border-line bg-paper-raised px-3 py-2 font-mono text-sm focus-within:border-accent"
+        className="flex items-center gap-2 border-t border-line pt-4 font-mono focus-within:border-accent"
       >
-        <span className="text-accent" aria-hidden>
+        <span className="text-[13px] text-muted" aria-hidden>
           &gt;
         </span>
         <input
@@ -107,27 +107,27 @@ export function AskMe() {
           aria-label="Ask a question"
           maxLength={1000}
           disabled={busy}
-          className="min-w-0 flex-1 bg-transparent text-ink outline-none placeholder:text-muted"
+          className="min-w-0 flex-1 bg-transparent text-base text-ink outline-none placeholder:text-muted sm:text-[13px]"
         />
         <button
           type="submit"
           disabled={busy || !input.trim()}
-          className="text-accent hover:text-ink disabled:text-muted"
+          className="text-[13px] text-ink-soft hover:text-accent disabled:text-muted"
         >
           {busy ? "…" : "Send"}
         </button>
       </form>
 
-      {error && <p className="font-mono text-xs text-accent">{error}</p>}
+      {error && <p className="mt-3 font-mono text-xs text-accent">{error}</p>}
 
       {messages.length === 0 && (
-        <div className="flex flex-wrap gap-2">
+        <div className="mt-2 flex flex-col items-start sm:mt-4 sm:flex-row sm:flex-wrap sm:gap-x-5 sm:gap-y-1">
           {suggestions.map((s) => (
             <button
               key={s}
               type="button"
               onClick={() => send(s)}
-              className="rounded border border-line bg-paper-raised px-2.5 py-1 font-mono text-xs text-ink-soft hover:border-accent hover:text-accent"
+              className="py-1.5 font-mono text-[11px] text-muted hover:text-accent sm:py-2"
             >
               {s}
             </button>

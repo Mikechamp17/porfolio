@@ -45,6 +45,10 @@ System design, automated testing, cloud infrastructure and IAM, and observabilit
 - Outcome: A small privacy tool that does one job: strip image metadata without sending the photo elsewhere.
 - Code: private for now.
 
+## Work: Websites customers can edit
+
+Mike has also built websites where the customer can edit the content themselves, so text and pages stay in the customer's hands without needing a developer for every change. AI tools are his main focus; editable websites are another kind of site he has shipped.
+
 ## Project: This site's chat
 
 - Problem: A portfolio page can only say so much before it turns into a wall of text.

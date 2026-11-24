@@ -1,96 +1,40 @@
-import { SiteHeader } from "@/components/site-header";
-import { SectionHeading } from "@/components/section-heading";
-import { ProjectCard } from "@/components/project-card";
-import { Typewriter } from "@/components/typewriter";
 import { AskMe } from "@/components/ask-me";
-import { projects, skills, socials } from "@/lib/data";
+import { socials } from "@/lib/data";
 
 export default function Home() {
   return (
-    <>
-      <SiteHeader />
-
-      <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-20 px-6 py-20">
-        <section id="hero" className="flex flex-col gap-4">
-          <p className="font-mono text-xs uppercase tracking-widest text-muted">
-            Full-stack Developer · Malta
+    <main className="mx-auto flex min-h-dvh w-full max-w-3xl flex-col px-5 py-8 sm:px-6">
+      <div className="mt-10 flex w-full max-w-xl flex-1 flex-col sm:mt-[16vh]">
+        <div className="max-w-md">
+          <h1 className="text-[15px] font-normal text-ink">Mike Schaerer</h1>
+          <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.14em] text-muted sm:mt-4 sm:tracking-[0.22em]">
+            Full-stack Developer
           </p>
-          <h1 className="font-mono text-4xl font-medium text-ink sm:text-5xl">
-            <Typewriter text="Mike Schaerer" />
-          </h1>
-          <p className="max-w-xl text-lg leading-relaxed text-ink-soft">
-            I build AI tools end to end — retrieval, deployment, and the
-            interface people actually use. Software that does one job well.
+          <p className="mt-5 text-2xl leading-snug font-medium text-ink sm:mt-7">
+            I build AI tools.
           </p>
-          <div className="mt-2 flex gap-5 font-mono text-sm">
-            <a href="#projects" className="text-accent hover:text-ink">
-              View projects ↓
-            </a>
-            <a href="#contact" className="text-ink-soft hover:text-accent">
-              Contact
-            </a>
-          </div>
-          <div className="mt-6 max-w-xl">
-            <AskMe />
-          </div>
-        </section>
+        </div>
 
-        <section id="about" className="flex flex-col">
-          <SectionHeading index="01">About</SectionHeading>
-          <div className="flex flex-col gap-6">
-            <p className="max-w-xl leading-relaxed text-ink-soft">
-              Full-stack developer focused on grounded AI and finished work.
-              Fewer moving parts, retrieval over improvisation, and a plain
-              &ldquo;I don&apos;t know&rdquo; when the source is silent.
-            </p>
-            <div>
-              <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted">
-                Skills
-              </p>
-              <ul className="flex flex-wrap gap-2 font-mono text-xs">
-                {skills.map((skill) => (
-                  <li
-                    key={skill}
-                    className="rounded border border-line bg-paper-raised px-2.5 py-1 text-ink-soft"
+        <div className="mt-14 w-full sm:mt-auto sm:pt-16">
+          <AskMe />
+
+          <footer className="mt-8 flex items-baseline justify-between pb-[max(0.5rem,env(safe-area-inset-bottom))] font-mono text-[11px] text-muted sm:mt-10">
+            <span>© {new Date().getFullYear()}</span>
+            <ul className="flex gap-5">
+              {socials.map((social) => (
+                <li key={social.label}>
+                  <a
+                    href={social.href}
+                    className="inline-block py-2 hover:text-accent"
                   >
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section id="projects" className="flex flex-col">
-          <SectionHeading index="02">Projects</SectionHeading>
-          <ul className="flex flex-col gap-4">
-            {projects.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
-            ))}
-          </ul>
-        </section>
-
-        <section id="contact" className="flex flex-col">
-          <SectionHeading index="03">Contact</SectionHeading>
-          <p className="mb-6 max-w-xl leading-relaxed text-ink-soft">
-            Say hello on GitHub or LinkedIn.
-          </p>
-          <ul className="flex flex-col gap-3 font-mono text-sm">
-            {socials.map((social) => (
-              <li key={social.label} className="flex flex-wrap gap-x-4">
-                <span className="w-20 text-muted">{social.label}</span>
-                <a href={social.href} className="text-ink hover:text-accent">
-                  {social.value}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
-      </main>
-
-      <footer className="border-t border-line px-6 py-6 text-center font-mono text-xs text-muted">
-        © {new Date().getFullYear()} Mike Schaerer
-      </footer>
-    </>
+                    {social.value}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </footer>
+        </div>
+      </div>
+    </main>
   );
 }
