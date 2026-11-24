@@ -53,6 +53,10 @@ A live conference Q&A page. https://asktheroom.org.mt
 
 A page for real grass potty patches. https://pottybox.vercel.app
 
+## Work: Websites customers can edit
+
+Mike has also built websites where the customer can edit the content themselves, so text and pages stay in the customer's hands without needing a developer for every change. AI tools are his main focus; editable websites are another kind of site he has shipped.
+
 ## Project: This site's chat
 
 - Problem: A portfolio page can only say so much before it turns into a wall of text.
