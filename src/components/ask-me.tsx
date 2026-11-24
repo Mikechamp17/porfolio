@@ -95,9 +95,9 @@ export function AskMe() {
           e.preventDefault();
           send(input);
         }}
-        className="flex items-center gap-2 border-t border-line pt-4 font-mono text-[13px] focus-within:border-accent"
+        className="flex items-center gap-2 border-t border-line pt-4 font-mono focus-within:border-accent"
       >
-        <span className="text-muted" aria-hidden>
+        <span className="text-[13px] text-muted" aria-hidden>
           &gt;
         </span>
         <input
@@ -107,12 +107,12 @@ export function AskMe() {
           aria-label="Ask a question"
           maxLength={1000}
           disabled={busy}
-          className="min-w-0 flex-1 bg-transparent text-ink outline-none placeholder:text-muted"
+          className="min-w-0 flex-1 bg-transparent text-base text-ink outline-none placeholder:text-muted sm:text-[13px]"
         />
         <button
           type="submit"
           disabled={busy || !input.trim()}
-          className="text-ink-soft hover:text-accent disabled:text-muted"
+          className="text-[13px] text-ink-soft hover:text-accent disabled:text-muted"
         >
           {busy ? "…" : "Send"}
         </button>
