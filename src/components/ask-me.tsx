@@ -6,8 +6,8 @@ type Message = { role: "user" | "assistant"; content: string };
 
 const suggestions = [
   "What do you build?",
-  "Are you available for freelance?",
   "What's your stack?",
+  "How do you approach AI?",
 ];
 
 export function AskMe() {
