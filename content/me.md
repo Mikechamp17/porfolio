@@ -47,11 +47,7 @@ System design, automated testing, cloud infrastructure and IAM, and observabilit
 
 ## Project: AskTheRoom
 
-A live conference Q&A page. https://asktheroom.org.mt
-
-## Project: Pooty Box
-
-A page for real grass potty patches. https://pottybox.vercel.app
+A live conference Q&A page.
 
 ## Work: Websites customers can edit
 

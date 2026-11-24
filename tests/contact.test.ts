@@ -21,6 +21,17 @@ test("a real email becomes a mailto link", () => {
   assert.equal(resolveEmail("mike@example.test")?.href, "mailto:mike@example.test");
 });
 
+test("the homepage and notes omit AskTheRoom and Pooty Box links", () => {
+  const files = ["content/me.md", "src/app/page.tsx", "src/lib/data.ts"];
+  const banned = [/asktheroom\.org\.mt/i, /pottybox/i, /Pooty Box/i];
+  for (const file of files) {
+    const text = readFileSync(new URL(`../${file}`, import.meta.url), "utf8");
+    for (const pattern of banned) {
+      assert.doesNotMatch(text, pattern, file);
+    }
+  }
+});
+
 test("the site and notes do not list prices or a freelance offer", () => {
   const files = [
     "content/me.md",
