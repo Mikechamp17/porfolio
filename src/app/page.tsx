@@ -1,96 +1,37 @@
-import { SiteHeader } from "@/components/site-header";
-import { SectionHeading } from "@/components/section-heading";
-import { ProjectCard } from "@/components/project-card";
-import { Typewriter } from "@/components/typewriter";
 import { AskMe } from "@/components/ask-me";
-import { projects, skills, socials } from "@/lib/data";
+import { socials } from "@/lib/data";
 
 export default function Home() {
   return (
-    <>
-      <SiteHeader />
+    <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-6 py-8">
+      <div className="mt-[16vh] max-w-md">
+        <h1 className="text-[15px] font-normal text-ink">Mike Schaerer</h1>
+        <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
+          Full-stack Developer
+        </p>
+        <p className="mt-7 text-2xl leading-snug font-medium text-ink">
+          I build AI tools.
+        </p>
+      </div>
 
-      <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-20 px-6 py-20">
-        <section id="hero" className="flex flex-col gap-4">
-          <p className="font-mono text-xs uppercase tracking-widest text-muted">
-            Full-stack Developer · Malta
-          </p>
-          <h1 className="font-mono text-4xl font-medium text-ink sm:text-5xl">
-            <Typewriter text="Mike Schaerer" />
-          </h1>
-          <p className="max-w-xl text-lg leading-relaxed text-ink-soft">
-            I build AI tools end to end — retrieval, deployment, and the
-            interface people actually use. Software that does one job well.
-          </p>
-          <div className="mt-2 flex gap-5 font-mono text-sm">
-            <a href="#projects" className="text-accent hover:text-ink">
-              View projects ↓
-            </a>
-            <a href="#contact" className="text-ink-soft hover:text-accent">
-              Contact
-            </a>
-          </div>
-          <div className="mt-6 max-w-xl">
-            <AskMe />
-          </div>
-        </section>
+      <div className="mt-auto pt-20">
+        <div className="max-w-xl">
+          <AskMe />
+        </div>
 
-        <section id="about" className="flex flex-col">
-          <SectionHeading index="01">About</SectionHeading>
-          <div className="flex flex-col gap-6">
-            <p className="max-w-xl leading-relaxed text-ink-soft">
-              Full-stack developer focused on grounded AI and finished work.
-              Fewer moving parts, retrieval over improvisation, and a plain
-              &ldquo;I don&apos;t know&rdquo; when the source is silent.
-            </p>
-            <div>
-              <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted">
-                Skills
-              </p>
-              <ul className="flex flex-wrap gap-2 font-mono text-xs">
-                {skills.map((skill) => (
-                  <li
-                    key={skill}
-                    className="rounded border border-line bg-paper-raised px-2.5 py-1 text-ink-soft"
-                  >
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section id="projects" className="flex flex-col">
-          <SectionHeading index="02">Projects</SectionHeading>
-          <ul className="flex flex-col gap-4">
-            {projects.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
-            ))}
-          </ul>
-        </section>
-
-        <section id="contact" className="flex flex-col">
-          <SectionHeading index="03">Contact</SectionHeading>
-          <p className="mb-6 max-w-xl leading-relaxed text-ink-soft">
-            Say hello on GitHub or LinkedIn.
-          </p>
-          <ul className="flex flex-col gap-3 font-mono text-sm">
+        <footer className="mt-10 flex items-baseline justify-between font-mono text-[11px] text-muted">
+          <span>© {new Date().getFullYear()}</span>
+          <ul className="flex gap-5">
             {socials.map((social) => (
-              <li key={social.label} className="flex flex-wrap gap-x-4">
-                <span className="w-20 text-muted">{social.label}</span>
-                <a href={social.href} className="text-ink hover:text-accent">
+              <li key={social.label}>
+                <a href={social.href} className="py-1.5 hover:text-accent">
                   {social.value}
                 </a>
               </li>
             ))}
           </ul>
-        </section>
-      </main>
-
-      <footer className="border-t border-line px-6 py-6 text-center font-mono text-xs text-muted">
-        © {new Date().getFullYear()} Mike Schaerer
-      </footer>
-    </>
+        </footer>
+      </div>
+    </main>
   );
 }
