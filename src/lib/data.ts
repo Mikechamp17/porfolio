@@ -1,18 +1,16 @@
-export const selectedWork: { name: string; description: string; href: string }[] = [
-  {
-    name: "AskTheRoom",
-    description: "Live conference Q&A.",
-    href: "https://asktheroom.org.mt",
-  },
-  {
-    name: "Pooty Box",
-    description: "A page for real grass potty patches.",
-    href: "https://pottybox.vercel.app",
-  },
+export const selectedWork: {
+  name: string;
+  description: string;
+  href?: string;
+}[] = [
   {
     name: "ImageLeak",
     description: "A browser check for hidden photo metadata.",
     href: "https://github.com/Mikechamp17/imageLeak",
+  },
+  {
+    name: "AskTheRoom",
+    description: "Live conference Q&A.",
   },
 ];
 

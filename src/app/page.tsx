@@ -23,9 +23,13 @@ export default function Home() {
             <ul className="mt-3 flex flex-col gap-2 text-sm text-ink-soft">
               {selectedWork.map((item) => (
                 <li key={item.name}>
-                  <a href={item.href} className="text-ink hover:text-accent">
-                    {item.name}
-                  </a>
+                  {item.href ? (
+                    <a href={item.href} className="text-ink hover:text-accent">
+                      {item.name}
+                    </a>
+                  ) : (
+                    <span className="text-ink">{item.name}</span>
+                  )}
                   . {item.description}
                 </li>
               ))}
