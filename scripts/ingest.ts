@@ -69,5 +69,13 @@ async function main() {
 
 main().catch((err) => {
   console.error(err);
+  // On Vercel/CI, a dead or unreachable Supabase must not block the site build.
+  // Local `npm run ingest` still fails so you notice.
+  if (process.env.VERCEL || process.env.CI) {
+    console.warn(
+      "ingest: failed during build; continuing. Fix SUPABASE_* and re-run ingest so chat has content.",
+    );
+    process.exit(0);
+  }
   process.exit(1);
 });
